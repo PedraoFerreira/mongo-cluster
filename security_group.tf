@@ -1,6 +1,6 @@
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow-ssh"
-  description = "Allow SSH inbound traffic"
+resource "aws_security_group" "sg_mongodb" {
+  name        = "allow-mongodb-access"
+  description = "MongoDB Security Group"
 
   ingress {
     from_port   = 22
@@ -8,23 +8,13 @@ resource "aws_security_group" "allow_ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
-
-resource "aws_security_group" "allow_http" {
-  name        = "allow-http"
-  description = "Allow Http inbound traffic"
 
   ingress {
-    from_port   = 80
-    to_port     = 80
+    from_port   = 27017
+    to_port     = 27019
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
-
-resource "aws_security_group" "allow_outbound" {
-  name        = "allow-all-outbound"
-  description = "Allow all outbound traffic"
 
   egress {
     from_port = 0

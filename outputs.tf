@@ -2,6 +2,8 @@ output "router-ip" {
   value = "${aws_eip.router-eip.public_ip}"
 }
 
+/*
+
 output "confserv-01-ip" {
   value = "${aws_eip.confserv-01-eip.public_ip}"
 }
@@ -25,3 +27,5 @@ output "srdserv2-01-ip" {
 output "srdserv2-02-ip" {
   value = "${aws_eip.srdserv2-02-eip.public_ip}"
 }
+
+*/
